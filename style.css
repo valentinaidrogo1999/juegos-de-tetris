@@ -1,0 +1,50 @@
+:root{
+  --bg-game:#010315;
+  --Z-tetriminium:#FF0101;
+  --S-tetriminium:#34DF09;
+  --L-tetriminium:#FF5C00;
+  --O-tetriminium:#EFD917;
+  --I-tetriminium:#07B7EE;
+  --T-tetriminium:#BD00FF;
+  --J-tetriminium:#0038FF;
+}
+body{
+  margin: 0;
+  box-sizing: border-box;
+  background-color: var(--bg-game);
+  font-family: 'Inter', sans-serif;
+}
+.welcome p{
+  display: flex;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+}
+.welcome p {
+    background-image: linear-gradient(
+        to right,
+        orangered,
+        orange,
+        gold,
+        lightgreen,
+        cyan,
+        dodgerblue,
+        mediumpurple,
+        hotpink,
+        orangered);
+    background-size: 110vw;
+} 
+
+.welcome p {
+      animation: sliding 60s linear infinite;
+  }
+  @keyframes sliding {
+      to {
+          background-position: -2000vw;
+      }
+  }
+.welcome p{
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
