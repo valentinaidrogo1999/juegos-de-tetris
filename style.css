@@ -1,5 +1,6 @@
 :root{
   --bg-game:#010315;
+  --border-color:#232F6F;
   --Z-tetriminium:#FF0101;
   --S-tetriminium:#34DF09;
   --L-tetriminium:#FF5C00;
@@ -10,14 +11,20 @@
 }
 body{
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
   background-color: var(--bg-game);
   font-family: 'Inter', sans-serif;
 }
+.gameSpace{
+  display: flex;
+  flex-direction:row;
+}
+/*Welcome title*/
 .welcome p{
   display: flex;
   justify-content: center;
-  font-size: 40px;
+  font-size: clamp(1.463rem,5vw,2.5rem);
   font-weight: bold;
   color: white;
 }
@@ -35,7 +42,6 @@ body{
         orangered);
     background-size: 110vw;
 } 
-
 .welcome p {
       animation: sliding 60s linear infinite;
   }
@@ -48,13 +54,19 @@ body{
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+/*Instruction side*/
+h3{
+  font-size: clamp(0.8rem,2vw,1.17rem);
+}
 .instructions{
   padding-left: 2%;
   width: 20%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   color: white;
+}
+.instructions p{
+  font-size: clamp(0.8rem,2vw,1rem);
 }
 .instruction{
   display: flex;
@@ -64,4 +76,14 @@ body{
 .instruction img{
   width: 30px;
   height: 30px;
+}
+/*Tetris canvas*/
+.tetris{
+  display: flex;
+  justify-content: center;
+  width: 80%;
+}
+#canvas{
+  width: 90%;
+  border: 2px solid var(--border-color);
 }

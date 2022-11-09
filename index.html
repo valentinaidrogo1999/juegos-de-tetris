@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juego de tetris</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" media="">
 </head>
 <body>
     <section class="welcome">
         <p>¡Bienvenido al juego!</p>
     </section>
-    <main>
+    <main class="gameSpace">
         <!-- Instructions-->
         <aside class="instructions">
+            <h3>Puntaje: </h3>
             <h3>Controles de juego:</h3>
             <div class="instruction">
                 <img src="img/up-arrow.png" alt="rotation">
@@ -33,11 +33,10 @@
                 <p>Mover hacia abajo</p>
             </div>
         </aside>
-        <section>
-
+        <section class="tetris">
+            <canvas id="canvas" width="500px" height="250px"></canvas>
         </section>
     </main>
-
     <script src="index.js"></script>
 </body>
 
