@@ -1,0 +1,55 @@
+
+:root{
+    --bg-game:#010315;
+    --Z-tetriminium:#FF0101;
+    --S-tetriminium:#34DF09;
+    --L-tetriminium:#FF5C00;
+    --O-tetriminium:#EFD917;
+    --I-tetriminium:#07B7EE;
+    --T-tetriminium:#BD00FF;
+    --J-tetriminium:#0038FF;
+    --color-de-letras:#fff;
+    --color-enlaces:#000;
+  }
+
+
+*{
+    margin: 0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+.header{
+    width: 100%;
+  
+}
+ ul{
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    justify-content: space-evenly;
+     
+     
+} 
+
+li, a{
+    color: var(--color-de-letras);
+    margin: 0px 10px;
+}
+
+
+
+.canvas-game{
+
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    justify-content: center;
+    margin: 40px 50px;
+
+}
+.canvas-game #canva{
+    width: 400px;
+    border: 2px solid #000;
+    height: 1000px;
+    background-color: #000000;
+}
