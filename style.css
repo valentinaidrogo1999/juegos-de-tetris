@@ -1,5 +1,5 @@
 :root{
-  --bg-game:#010315;
+  --bg-game:#030728;
   --border-color:#232F6F;
   --Z-tetriminium:#FF0101;
   --S-tetriminium:#34DF09;
@@ -83,7 +83,12 @@ h3{
   justify-content: center;
   width: 80%;
 }
-#canvas{
+#canva{
   width: 90%;
   border: 2px solid var(--border-color);
+}
+@media (max-width:768px) {
+  .instruction{
+    display:none;
+  }
 }
