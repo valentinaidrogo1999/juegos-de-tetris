@@ -9,22 +9,40 @@
     <link rel="stylesheet" href="estilos css/style.css">
 </head>
 <body>
+  
       <section class="entrada-de-bienvenida">
             <h1>¡Bienvenido al juego!</h1>
       </section>
 
      <header class="header" > 
          <ul>
-           <li id="puntos">Puntaje</li>
+           <li id="puntos">Puntaje:<p class="titles" id="score">0</p></li>
+
            <li id="instrucciones"><a href="index.html">Instrucciones</a></li>
-           <li id="figuras">Ficha siguiente</li>
+
+           <li id="figuras">Ficha Siguiente:
+             <div class="header__next">
+                 <canvas id="caja-fichas"></canvas>
+              </div>
+           </li>
          </ul>
      </header>
 
        <section class="canvas-game">
+       
            <canvas id="canva"></canvas>
        </section>
 
+       
+    </section>
+
+    <!-------------------->
+
+
     
+   
+
+    <script src="index.js"></script>
+  
 </body>
 </html>

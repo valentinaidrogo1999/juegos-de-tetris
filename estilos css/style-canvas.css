@@ -37,7 +37,7 @@ li, a{
 }
 
 
-
+/*medidas de la caja donde se ejecutara el juego*/
 .canvas-game{
 
     display: flex;
@@ -49,7 +49,23 @@ li, a{
 }
 .canvas-game #canva{
     width: 400px;
-    border: 2px solid #000;
+   background-color: #000;
     height: 1000px;
-    background-color: #000000;
+   
 }
+
+
+.header__next #caja-fichas{
+  width: 100px;
+  height: 50px;
+  margin: 20px 10px;
+    background-color: #1E1E1E;
+}
+
+
+#puntos p{
+    margin: 20px 20px;
+}
+
+/*------------------------------otra opcion-------------------------*/
+
