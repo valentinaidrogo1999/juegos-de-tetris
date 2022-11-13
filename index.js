@@ -1,90 +1,170 @@
 
-const velocidad = 50000; //velocidad del juego
-const block_side_length = 30; //longitud del lado del bloque
-const rows= 25; //fichas en fila
-const columns = 25; // fichas en columnas
-const score= 20;  //puntuacion
-const canvas = document.getElementById("canva");
-const ctx = canvas.getContext("2d");
+//Save item
+let canvas = document.getElementById("canva");
+//Context of canvas
+let context = canvas.getContext("2d");
+//Number of columns and rows the board will have 
+const square_size =screen.width > 420 ? 19.6 : 9.6; //Operador ternario si la pantalla es mayor a 520 que la media sea de 40 si no sera de 20
+//const square_size = 20
+const cols = 25;
+const rows = 25;
+const score = document.querySelector("score");
+//Color of empty squares
+const empty = "#000000";
+const borderSquare = "#232F6F";
+const delected_row_color="#FF003D";//Color for delected row
 
-ctx.fillStyle = "#232F6F";
-ctx.fillRect(0, 0, 400, 400);
+//function to draw the squares
+drawSquares = (x, y, color) =>{
+  context.fillStyle =color;//Color of the square
+  context.fillRect(x*square_size, y*square_size,square_size, square_size)//Value in x, value in y, widht, height of square
+  context.strokeStyle = "#232F6F";
+  context.strokeRect(x * square_size, y * square_size, square_size, square_size);
+}
+//Create the board
+let board = [];
+for (r = 0; r < rows; r++) {
+    board[r] = [];
+    for (c = 0; c < cols; c++) {
+        board[r][c] = empty;
+    }
+}
+//Draw the board
+drawBoard = () => {
+    for (r = 0; r < rows; r++) {
+        for (c = 0; c < cols; c++) {
+            drawSquares(c, r, board[r][c])
+        }
+    }
+}
+ drawBoard();
 
-
-
-
-
-
-
-
-
-
-
-const filas =[
-    [],
-    [ //FICHA "  I "
-        [0,0,0,0],
-        [1,1,1,1],
-        [0,0,0,0],
-        [0,0,0,0]
-    ],
-
-
-    [ //FICHA "  L "
-        [2,0,0],
-        [2,2,2],
-        [0,0,0],
-      
-    ],
-
-    [  //FICHA "  J "
-        [0,0,3],
-        [3,3,3],
-        [0,0,0],
-      
-    ],
-
-    [  //FICHA " O "
-        [4,4],
-        [4,4],
-        
-    ],
-
-    [ //FICHA "  S "
-        [0,5,5],
-        [5,5,0],
-        [0,0,0],
-      
-    ],
-
+//build the pieces and the positions they have
+const O =[
+  [
+      [0, 0, 0, 0],
+      [0, 1, 1, 0],
+      [0, 1, 1, 0],
+      [0, 0, 0, 0],
+  ]
+];
+const I = [
+  [
+      [0, 0, 0, 0],
+      [1, 1, 1, 1],
+      [0, 0, 0, 0],
+      [0, 0, 0, 0],
+  ],
+  [
+      [0, 0, 1, 0],
+      [0, 0, 1, 0],
+      [0, 0, 1, 0],
+      [0, 0, 1, 0],
+  ]
+];
+const S =[
     [
-        //FICHA "  T "
-        [0,6,0],
-        [6,6,6],
-        [0,0,0],
-      
+        [ 0, 1, 1],
+        [ 1, 1, 0],
+        [ 0, 0, 0],
     ],
-
-    [ //FICHA "  Z "
-        [7,7,0],
-        [0,7,7],
-        [0,0,0],
-      
+    [
+        [ 1, 0, 0],
+        [ 1, 1, 0],
+        [ 0, 1, 0],
     ],
 ]
-
-const colores = [
-    '#07B7EE', //color de la ficha " I "
-    '#FF5C00', //color de la ficha " L "
-    '#0038FF', //color de la ficha " J "
-    '#EFD917', //color de la ficha " O "
-    '#FF0101', //color de la ficha " S "
-    '#BD00FF', //color de la ficha " T "
-    '#34DF09', //color de la ficha " Z "
+const Z =[
+    [
+        [1, 1, 0],
+        [0, 1, 1],
+        [0, 0, 0],
+    ],
+    [
+        [0, 0, 1],
+        [0, 1, 1],
+        [0, 1, 0],
+    ],
 ]
+const T = [
+    [
+        [0, 1, 0],
+        [1, 1, 1],
+        [0, 0, 0]
+    ],
+    [
+        [0, 1, 0],
+        [0, 1, 1],
+        [0, 1, 0]
+    ],
+    [
+        [0, 0, 0],
+        [1, 1, 1],
+        [0, 1, 0]
+    ],
+    [
+        [0, 1, 0],
+        [1, 1, 0],
+        [0, 1, 0]
+    ]
+];
+const L = [
+    [
+        [0, 0, 1],
+        [1, 1, 1],
+        [0, 0, 0]
+    ],
+    [
+        [0, 1, 0],
+        [0, 1, 0],
+        [0, 1, 1]
+    ],
+    [
+        [0, 0, 0],
+        [1, 1, 1],
+        [1, 0, 0]
+    ],
+    [
+        [1, 1, 0],
+        [0, 1, 0],
+        [0, 1, 0]
+    ]
+];
+const J = [
+    [
+        [0, 1, 0],
+        [0, 1, 0],
+        [1, 1, 0]
+    ],
+    [
+        [1, 0, 0],
+        [1, 1, 1],
+        [0, 0, 0]
+    ],
+    [
+        [0, 1, 1],
+        [0, 1, 0],
+        [0, 1, 0]
+    ],
+    [
+        [0, 0, 0],
+        [1, 1, 1],
+        [0, 0, 1]
+    ],  
+];
+const pieces = [
+    [O, "#EFD917"],
+    [I, "#07B7EE"],
+    [S, "#34DF09"],
+    [Z, "#FF0101"],
+    [T, "#BD00FF"],
+    [L, "#FF5C00"],
+    [J, "#0038FF"]
+];
 
-
-
-
-
-
+//Generate random pieces. Choose a random number that will be the index to select the piece from the array
+randomPiece =()=> {
+    let randPiece = Math.floor(Math.random() * pieces.length) //Index position to select figure from array of pieces
+    return new Piece(pieces[randPiece][0], pieces[randPiece][1]); // selected figure and its color as parameters of the object: piece      
+}
+let p = randomPiece();

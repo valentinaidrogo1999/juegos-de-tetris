@@ -18,7 +18,8 @@
          <ul>
            <li id="puntos">Puntaje:<p class="titles" id="score">0</p></li>
 
-           <li id="instrucciones"><a href="index.html">Instrucciones</a></li>
+           <li id="instrucciones"><input type="checkbox" id="btn-modal">
+            <label for="btn-modal" class="lbl-modal">instrucciones</label></li>
 
            <li id="figuras">Ficha Siguiente:
              <div class="header__next">
@@ -26,8 +27,36 @@
               </div>
            </li>
          </ul>
+         
      </header>
+     <div class="modal">
 
+     <section id="instrucciones-movil">
+       <section class="primera-parte">
+        <label for="btn-modal">X</label>
+      <ul>
+          <li><img src="imagenes/arcticons_tap-tap.png" alt="imagen de manito tap"></li>
+          <li><img src="imagenes/mdi_gesture-swipe-left.png" alt=""></li>
+          <li><img class="vector" src="imagenes/Vector.png" alt=""></li>
+          <li><img src="imagenes/mdi_gesture-swipe-down.png" alt=""></li>
+      </ul>
+
+     <section class="parrafos">
+       <p>Tap para rotar la figura</p>
+       <p>Desliza para mover hacia la izquierda</p>
+       <p>Desliza para mover hacia la  derecha</p>
+       <p> Desliza para mover hacia abajo</p>
+      </section>
+     </section>
+      
+      <section id="boton">
+        <button id="open"> <a href="jugar.html"> Iniciar</a></button>
+      </section>
+
+    </div>
+     
+
+     <!---------------------->
        <section class="canvas-game">
        
            <canvas id="canva"></canvas>
