@@ -10,7 +10,6 @@
   --J-tetriminium: #0038ff;
   --color-letra: #fff;
 }
-
 body {
   margin: 0;
   padding: 0;
@@ -18,26 +17,19 @@ body {
   background-color: var(--bg-game);
   font-family: "Inter", sans-serif;
 }
-
 .gameSpace {
   display: flex;
   flex-direction: row;
 }
-.welcome p {
-  position: relative;
-  left: 100px;
-}
-
 /*Welcome title*/
 .welcome p {
   text-align: center;
   font-size: clamp(1.463rem, 5vw, 2.5rem);
   font-weight: bold;
   color: white;
+  animation: sliding 60s linear infinite;
 }
-
 /*------------welcome letter color------------*/
-
 .welcome p,
 button {
   background-image: linear-gradient(
@@ -53,6 +45,15 @@ button {
     orangered
   );
   background-size: 110vw;
+}
+@keyframes sliding {
+  to {
+    background-position: -2000vw;
+  }
+}
+.welcome p {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 ul img {
   width: 30px;
@@ -112,43 +113,20 @@ button a {
   color: var(--color-enlaces);
 }
 /*---------------------------------*/
-
-.entrada-de-bienvenida h1,
-button {
-  animation: sliding 60s linear infinite;
-}
-
-.welcome p {
-  animation: sliding 60s linear infinite;
-}
-
-@keyframes sliding {
-  to {
-    background-position: -2000vw;
-  }
-}
-
-.welcome p {
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 /*Instruction side*/
 h3 {
   font-size: clamp(0.8rem, 2vw, 1.17rem);
 }
 .instructions {
   padding-left: 2%;
-  width: 20%;
+  width: 25%;
   display: flex;
   flex-direction: column;
   color: white;
 }
-
 .instructions p {
   font-size: clamp(0.8rem, 2vw, 1rem);
 }
-
 .instruction {
   display: flex;
   flex-direction: row;
@@ -165,8 +143,7 @@ h3 {
 .tetris {
   display: flex;
   justify-content: center;
-
-  width: 100%;
+  width: 75%;
 }
 
 /*styles for mobile instructions*/
@@ -212,7 +189,7 @@ h3 {
     font-weight: 900;
   }
 
-  #puntos p {
+  #points p {
     margin: 20px 20px;
   }
 
