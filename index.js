@@ -1,4 +1,6 @@
 
+
+
 //Save item
 let canvas = document.getElementById("canva");
 //Context of canvas
@@ -16,10 +18,10 @@ const delected_row_color="#FF003D";//Color for delected row
 
 //function to draw the squares
 drawSquares = (x, y, color) =>{
-  context.fillStyle =color;//Color of the square
-  context.fillRect(x*square_size, y*square_size,square_size, square_size)//Value in x, value in y, widht, height of square
-  context.strokeStyle = "#232F6F";
-  context.strokeRect(x * square_size, y * square_size, square_size, square_size);
+    context.fillStyle =color;//Color of the square
+    context.fillRect(x*square_size, y*square_size,square_size, square_size)//Value in x, value in y, widht, height of square
+    context.strokeStyle = "#232F6F";
+    context.strokeRect(x * square_size, y * square_size, square_size, square_size);
 }
 //Create the board
 let board = [];
@@ -168,3 +170,10 @@ randomPiece =()=> {
     return new Piece(pieces[randPiece][0], pieces[randPiece][1]); // selected figure and its color as parameters of the object: piece      
 }
 let p = randomPiece();
+
+
+
+
+
+
+
