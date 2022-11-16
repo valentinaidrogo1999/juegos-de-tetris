@@ -8,7 +8,7 @@
   --I-tetriminium: #07b7ee;
   --T-tetriminium: #bd00ff;
   --J-tetriminium: #0038ff;
-  --color-letra: #fff;
+  --font-color: #fff;
 }
 body {
   margin: 0;
@@ -68,32 +68,10 @@ ul {
   list-style: none;
 }
 
-ul li {
-  margin-top: 40px;
-}
-.primera-parte {
-  display: flex;
-  justify-content: center;
-}
-
-.parrafos p {
-  margin-top: 50px;
-  color: var(--color-de-letras);
-  width: 165px;
-}
-
 #instrucciones-movil #boton {
   display: flex;
   justify-content: center;
   margin: 20px 0;
-}
-h3 {
-  text-align: center;
-}
-#score {
-  font-size: 25px;
-  display: flex;
-  justify-content: center;
 }
 /*Home button styles*/
 /*estilos del boton de inicio*/
@@ -114,8 +92,10 @@ button a {
 }
 /*---------------------------------*/
 /*Instruction side*/
-h3 {
+.texts {
   font-size: clamp(0.8rem, 2vw, 1.17rem);
+  color: white;
+  font-weight: bold;
 }
 .instructions {
   padding-left: 2%;
@@ -143,9 +123,9 @@ h3 {
 .tetris {
   display: flex;
   justify-content: center;
-  width: 75%;
+  align-items: center;
+  
 }
-
 /*styles for mobile instructions*/
 #instrucciones-movil {
   display: block;
@@ -160,6 +140,9 @@ h3 {
 .header {
   display: none;
 }
+#canva{
+  border: 3px solid #7000FF;
+}
 @media (max-width: 768px) {
   .instruction {
     display: none;
@@ -170,10 +153,8 @@ h3 {
   .header {
     width: 100%;
   }
-
   ul {
     list-style: none;
-
     display: flex;
     flex-wrap: wrap;
     box-sizing: border-box;
@@ -181,32 +162,30 @@ h3 {
   ul li {
     margin: 0 20px;
   }
-
   li,
   a {
     color: var(--color-letra);
     font-size: 25px;
     font-weight: 900;
   }
-
-  #points p {
+  #texts p {
     margin: 20px 20px;
   }
-
   .welcome p {
     position: relative;
     left: 0;
     font-size: 30px;
     text-align: center;
   }
-
   .header {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
   }
-
   .instructions {
     display: none;
+  }
+  .tetris{
+    width: 100%;
   }
 }
