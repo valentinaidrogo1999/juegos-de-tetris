@@ -1,59 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" media="" />
+    <link rel="shortcut icon" href="img/tetris.ico" />
     <title>Juego de tetris</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="style.css" media="">
-</head>
-<body>
-    <section class="welcome">
-        <p>¡Bienvenido al juego!</p>
-    </section>
-
-    <header class="header" > 
-        <ul>
-          <li id="puntos">Puntaje:<p class="puntos" id="score">0</p></li>
-
-          <li id="instrucciones"><a href="">Instrucciones</a></li>
-        
-        </ul>
+  </head>
+  <body>
+    <header class="welcome">
+      <p>¡Bienvenido al juego!</p>
     </header>
     <!--------------------->
-   
-    <main class="gameSpace">
-       <!-- Instructions-->
-        <aside class="instructions">
-            <h3>Puntaje: </h3>
-            <p class="puntos" id="score">0</p>
-            <h3>Controles de juego:</h3>
-            <div class="instruction">
-                <img src="imagenes/down arrow.png" alt="rotation">
-                <p>Rotación de figura</p>
-            </div>
-            <div class="instruction">
-                <img src="imagenes/left-arrow.png" alt="left">
-                <p>Mover hacia la izquierda</p>
-            </div>
-            <div class="instruction">
-                <img src="imagenes/right-arrow.png" alt="right">
-                <p>Mover hacia la derecha</p>
-            </div>
-            <div class="instruction">
-                <img src="imagenes/down arrow.png" alt="down">
-                <p>Mover hacia abajo</p>
-            </div>
-        </aside>
-        <section class="tetris">
-            <canvas width="490px" height="490px" id="canva"></canvas>
-        </section> 
-        <section class="store">
-
-        </section>
-
+    <main class="gameSpace">  
+      <section class="game-score">
+          <section class="next">
+            <p class="texts">Siguiente figura:</p>
+            <div class="nextPiece"></div>
+          </section> 
+        <ul class="points">
+          <li class="texts">
+            Puntaje:
+            <p class="texts" id="score">0</p>
+          </li>
+        </ul>
+      <!------------ Instructions---------------->
+        <ul class="modal-instructions">
+            <li id="instrucciones"><a href="">Instrucciones</a></li>
+        </ul>
+      </section>
+    <section class="tetris">
+       <canvas id="canva"></canvas>
+    </section>
+    <aside class="instructions">
+      <p class="texts">Controles de juego</p>
+        <div class="instruction">
+          <img src="../img/up-arrow.png" alt="rotation" />
+          <p>Rotación de figura</p>
+        </div>
+        <div class="instruction">
+          <img src="../img/left-arrow.png" alt="left" />
+          <p>Mover hacia la izquierda</p>
+        </div>
+        <div class="instruction">
+          <img src="../img/right-arrow.png" alt="right" />
+          <p>Mover hacia la derecha</p>
+        </div>
+        <div class="instruction">
+          <img src="../img/down arrow.png" alt="down" />
+          <p>Mover hacia abajo</p>
+        </div>
+      </aside>
         <!------------------Modal-------------------->
     <section id="movil-instructions">
 
@@ -66,10 +64,10 @@
                 <section id="instrucciones-movil">
                     <section class="primera-parte">
                         <ul>
-                            <li><img src="imagenes/arcticons_tap-tap.png" alt="imagen de manito tap"></li>
-                            <li><img src="imagenes/mdi_gesture-swipe-left.png" alt=""></li>
-                            <li><img class="vector" src="imagenes/Vector.png" alt=""></li>
-                            <li><img src="imagenes/mdi_gesture-swipe-down.png" alt=""></li>
+                            <li><img src="img/arcticons_tap-tap.png" alt="imagen de manito tap"></li>
+                            <li><img src="img/mdi_gesture-swipe-left.png" alt=""></li>
+                            <li><img class="vector" src="img/Vector.png" alt=""></li>
+                            <li><img src="img/mdi_gesture-swipe-down.png" alt=""></li>
                         </ul>
 
                         <section class="parrafos">
@@ -82,7 +80,8 @@
                     </section>
             
                     <section id="boton">
-                        <button class="open">Iniciar</button>
+                        <button onclick="restart()" class="open">Iniciar</button>
+        
                     </section>
                 </section>
 
@@ -94,6 +93,5 @@
     </main>
     <script src="index.js"></script>
     <script src="main.js"></script>
-</body>
-
+  </body>
 </html>

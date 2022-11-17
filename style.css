@@ -1,16 +1,8 @@
 :root {
   --bg-game: #030728;
   --border-color: #232f6f;
-  --Z-tetriminium: #ff0101;
-  --S-tetriminium: #34df09;
-  --L-tetriminium: #ff5c00;
-  --O-tetriminium: #efd917;
-  --I-tetriminium: #07b7ee;
-  --T-tetriminium: #bd00ff;
-  --J-tetriminium: #0038ff;
-  --color-letra: #fff;
+  --font-color: #fff;
 }
-
 body {
   margin: 0;
   padding: 0;
@@ -18,26 +10,18 @@ body {
   background-color: var(--bg-game);
   font-family: "Inter", sans-serif;
 }
-
-.gameSpace {
-  display: flex;
-  flex-direction: row;
-}
-.welcome p {
-  position: relative;
-  left: 100px;
-}
-
 /*Welcome title*/
 .welcome p {
   text-align: center;
-  font-size: clamp(1.463rem, 5vw, 2.5rem);
+  font-size: clamp(1.563rem, 5vw, 2.3rem);
   font-weight: bold;
   color: white;
+  animation: sliding 60s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 2%;
 }
-
 /*------------welcome letter color------------*/
-
 .welcome p,
 button {
   background-image: linear-gradient(
@@ -54,42 +38,46 @@ button {
   );
   background-size: 110vw;
 }
-
-ul img {
-  width: 30px;
-  height: 30px;
+@keyframes sliding {
+  to {
+    background-position: -2000vw;
+  }
 }
-.vector {
-  width: 25px;
-  height: 25px;
+.gameSpace {
+  display: flex;
+  flex-flow: row wrap;
+}
+.game-score{
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+}
+.texts {
+  font-size: clamp(0.8rem, 2vw, 1.17rem);
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+#score{
+  font-size:clamp(1.7rem, 3vw, 2rem);
 }
 ul {
   list-style: none;
+  padding: 0;
 }
-ul li {
-  margin-top: 40px;
-}
-.primera-parte {
+/*Tetris canvas*/
+.tetris {
+  width: 50%; 
   display: flex;
   justify-content: center;
 }
-.parrafos p {
-  margin-top: 50px;
-  color: var(--color-de-letras);
-  width: 165px;
+#canva{
+  border: 3px solid #7000FF;
 }
 #instrucciones-movil #boton {
   display: flex;
   justify-content: center;
   margin: 20px 0;
-}
-h3 {
-  text-align: center;
-}
-#score {
-  font-size: 25px;
-  display: flex;
-  justify-content: center;
 }
 /*Home button styles*/
 /*estilos del boton de inicio*/
@@ -102,36 +90,94 @@ button {
   font-size: 25px;
   font-weight: 900;
 }
-
 /*------------------------*/
-#boton button {
+button a {
   text-decoration: none;
   color: var(--color-enlaces);
-  cursor: pointer;
 }
-
 /*---------------------------------*/
-
-.entrada-de-bienvenida h1,
-button {
-  animation: sliding 60s linear infinite;
+/*Instruction side*/
+.instructions {
+  width: 25%;
+  display: flex;
+  flex-direction: column; 
+}
+.instruction {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 10px 0;
+  padding-left: 4%;
+  color: white;
+}
+.instruction img {
+  width: 30px;
+  height: 30px;
 }
 
-.welcome p {
-  animation: sliding 60s linear infinite;
+
+/*styles for mobile instructions*/
+#instrucciones-movil {
+  display: block;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
 }
 
-@keyframes sliding {
-  to {
-    background-position: -2000vw;
+#movil-instructions {
+  display: none;
+}
+.modal-instructions{
+  display: none;
+}
+
+
+@media (max-width: 768px) {
+  .gameSpace{
+    width: 100%;
   }
-}
+  .game-score{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-basis: 100%;
+    align-items: baseline;
+  }
+  .points{
+    width: 30%;
+  }
+  .next{
+    width: 30%;
+  }
+  .modal-instructions{
+    display: block;
+    width: 30%;
+    text-align: center;
+    color: var(--font-color);
+  }
+  .instruction {
+    display: none;
+  }
+  #movil-instructions {
+    display: block;
+  }
+  a {
+    color: var(--font-color);
+    font-size: clamp(0.8rem, 2vw, 1.17rem);
+    font-weight:bold;
+  }
+  #texts p {
+    margin: 20px 20px;
+  }
 
-.welcome p {
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-/*----------------------parte de la pagina modal-------------------*/
+  .instructions {
+    display: none;
+  }
+  .tetris{
+    width: 100%;
+  }
+
+ /*----------------------parte de la pagina modal-------------------*/
 .modal-capita {
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
@@ -153,7 +199,6 @@ button {
   height: 550px;
   position: relative;
   top: 24px;
-
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.7s;
@@ -176,7 +221,7 @@ button {
 }
 
 .btn-modal {
-  color: var(--color-letra);
+  color: #fff;
   font-size: 15px;
   text-decoration: none;
   position: absolute;
@@ -184,115 +229,45 @@ button {
   right: 10px;
   cursor: pointer;
 }
+/*-------------------------*/
 
-/*Instruction side*/
-h3 {
-  font-size: clamp(0.8rem, 2vw, 1.17rem);
-}
-.instructions {
-  padding-left: 2%;
-  width: 20%;
-  display: flex;
-  flex-direction: column;
-  color: white;
-}
 
-.instructions p {
-  font-size: clamp(0.8rem, 2vw, 1rem);
-}
-
-.instruction {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin: 10px 0;
-}
-
-.instruction img {
+ul img {
   width: 30px;
   height: 30px;
 }
-
-/*Tetris canvas*/
-.tetris {
+.vector {
+  width: 25px;
+  height: 25px;
+}
+ul {
+  list-style: none;
+}
+ul li {
+  margin-top: 40px;
+}
+.primera-parte {
   display: flex;
   justify-content: center;
-
-  width: 100%;
+}
+.primera-parte img{
+  margin: 0 10px;
 }
 
-/*styles for mobile instructions*/
-#instrucciones-movil {
-  display: block;
-  justify-items: center;
-  flex-wrap: wrap;
-  width: 100%;
-  height: 100%;
+#instrucciones-movil #boton {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+.parrafos p {
+  margin-top: 50px;
+  color:#fff;
+  width: 165px;
+}
+.welcome p {
+ margin-top: 30px;
+  font-size: 25px;
+  
 }
 
-#movil-instructions {
-  display: none;
-}
-.header {
-  display: none;
-}
-@media (max-width: 768px) {
-  .instruction {
-    display: none;
-  }
-  #movil-instructions .welcome p {
-    font-size: 20px;
-  }
-  .parrafos {
-    color: var(--color-letra);
-    margin: 10px 0;
-  }
-  #movil-instructions {
-    display: block;
-  }
-  .header {
-    width: 100%;
-  }
-  li img {
-    margin: 25px 0;
-  }
-
-  ul {
-    list-style: none;
-
-    display: flex;
-    flex-wrap: wrap;
-    box-sizing: border-box;
-  }
-  ul li {
-    margin: 0 20px;
-  }
-
-  li,
-  a {
-    color: var(--color-letra);
-    font-size: 25px;
-    font-weight: 900;
-  }
-
-  #puntos p {
-    margin: 20px 20px;
-  }
-
-  .welcome p {
-    position: relative;
-    left: 0;
-    font-size: 30px;
-    text-align: center;
-  }
-
-  .header {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .instructions {
-    display: none;
-  }
 }
