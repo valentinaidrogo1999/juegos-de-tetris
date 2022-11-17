@@ -3,17 +3,15 @@ let canvas = document.getElementById("canva");
 //Context of canvas
 let context = canvas.getContext("2d");
 //Number of columns and rows the board will have 
-const square_size = screen.width > 420 ? 24.5 : 12.25; //Operador ternario si la pantalla es mayor a 520 que la media sea de 40 si no sera de 20
+const square_size = screen.width > 425 ? 25 : 15; //Operador ternario si la pantalla es mayor a 520 que la media sea de 40 si no sera de 20
 //const square_size = 20
-const cols = 20;
-const rows = 20;
+const cols = screen.width > 425 ?20:15;
+const rows = screen.width > 425 ?20:25;
 canvas.width = cols*square_size;
 canvas.height = rows*square_size;
 const Score = document.getElementById("score");
 //Color of empty squares
 const empty = "#000000";
-const borderSquare = "#6100FF";
-const delected_row_color = "#FF003D";//Color for delected row
 var gameOver = false;
 //function to draw the squares
 drawSquares = (x, y, color) => {
@@ -166,24 +164,22 @@ const pieces = [
 
 function randomPiece() {
     if (!gameOver) {
-        let ranPiece = Math.floor(Math.random() * pieces.length)
-        return new Piece(pieces[ranPiece][0], pieces[ranPiece][1])
+        let randPiece = Math.floor(Math.random() * pieces.length)
+        return new Piece(pieces[randPiece][0], pieces[randPiece][1])
     }
 }
-
 let p = randomPiece();
 
 function Piece(figure, color) {
     this.figure = figure;
     this.color = color;
-    this.figureN = 0;
-    this.actFigure = this.figure[this.figureN];
+    this.newFigure = 0;
+    this.actFigure = this.figure[this.newFigure];
     this.x = 3;
     this.y = -2;
 }
 
 Piece.prototype.fill = function (color) {
-
     for (r = 0; r < this.actFigure.length; r++) {
         for (c = 0; c < this.actFigure.length; c++) {
             if (this.actFigure[r][c]) {
@@ -191,7 +187,6 @@ Piece.prototype.fill = function (color) {
             }
         }
     }
-
 }
 
 Piece.prototype.draw = function () {
@@ -231,7 +226,7 @@ Piece.prototype.moveLeft = function () {
 }
 
 Piece.prototype.rotate = function () {
-    let nextPat = this.figure[(this.figureN + 1) % this.figure.length];
+    let nextPat = this.figure[(this.newFigure + 1) % this.figure.length];
     let kick = 0;
 
     if (this.collision(0, 0, nextPat)) {
@@ -245,8 +240,8 @@ Piece.prototype.rotate = function () {
     if (!this.collision(kick, 0, nextPat)) {
         this.unDraw();
         this.x += kick;
-        this.figureN = (this.figureN + 1) % this.figure.length;
-        this.actFigure = this.figure[this.figureN];
+        this.newFigure = (this.newFigure + 1) % this.figure.length;
+        this.actFigure = this.figure[this.newFigure];
         this.draw();
     }
 }
@@ -333,7 +328,6 @@ function CONTROL(event) {
 // }
 
 let dropStart = Date.now();
-
 
 function drop() {
     let now = Date.now();
