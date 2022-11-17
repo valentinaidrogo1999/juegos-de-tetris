@@ -9,25 +9,32 @@
     <title>Juego de tetris</title>
   </head>
   <body>
-    <section class="welcome">
+    <header class="welcome">
       <p>¡Bienvenido al juego!</p>
-    </section>
-    <header class="header">
-      <ul>
-        <li id="instrucciones"><a href="">Instrucciones</a></li>
-      </ul>
     </header>
     <!--------------------->
-    <main class="gameSpace">
-      <!-- Instructions-->
-      <aside class="instructions">
-        <ul>
+    <main class="gameSpace">  
+      <section class="game-score">
+        <ul class="points">
           <li class="texts">
             Puntaje:
             <p class="texts" id="score">0</p>
           </li>
-          <li class="texts">Controles de juego</li>
         </ul>
+          <section class="next">
+            <p class="texts">Siguiente figura:</p>
+            <div class="nextPiece"></div>
+          </section> 
+      <!------------ Instructions---------------->
+        <ul class="modal-instructions">
+          <li><a href="">Instrucciones</a></li>
+        </ul>
+      </section>
+    <section class="tetris">
+       <canvas id="canva"></canvas>
+    </section>
+    <aside class="instructions">
+      <p class="texts">Controles de juego</p>
         <div class="instruction">
           <img src="../img/up-arrow.png" alt="rotation" />
           <p>Rotación de figura</p>
@@ -45,10 +52,6 @@
           <p>Mover hacia abajo</p>
         </div>
       </aside>
-      <section class="tetris">
-        <canvas id="canva"></canvas>
-      </section>
-
       <!------------------Modal-------------------->
       <!-- <section id="movil-instructions">
         <section class="primera-parte">
