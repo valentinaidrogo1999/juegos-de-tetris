@@ -203,7 +203,6 @@ Piece.prototype.moveDown = function () {
         this.y++;
         this.draw();
     } else {
-
         this.lock();
         p = randomPiece();
     }
@@ -280,7 +279,6 @@ Piece.prototype.lock = function () {
     }
     drawBoard();
     Score.innerHTML = score;
-    console.log(Score)
 }
 
 Piece.prototype.collision = function (x, y, piece) {

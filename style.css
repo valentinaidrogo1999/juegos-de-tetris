@@ -74,28 +74,8 @@ ul {
 #canva{
   border: 3px solid #7000FF;
 }
-#instrucciones-movil #boton {
-  display: flex;
-  justify-content: center;
-  margin: 20px 0;
-}
-/*Home button styles*/
-/*estilos del boton de inicio*/
 
-button {
-  width: 150px;
-  height: 50px;
-  border-radius: 10px;
-  border: none;
-  font-size: 25px;
-  font-weight: 900;
-}
-/*------------------------*/
-button a {
-  text-decoration: none;
-  color: var(--color-enlaces);
-}
-/*---------------------------------*/
+
 /*Instruction side*/
 .instructions {
   width: 25%;
