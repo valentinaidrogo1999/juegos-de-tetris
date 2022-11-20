@@ -7,10 +7,10 @@ let context = canvas.getContext("2d");
 //Number of columns and rows the board will have 
 const square_size = screen.width > 425 ? 20 : 15; //Operador ternario si la pantalla es mayor a 520 que la media sea de 40 si no sera de 20
 //const square_size = 20
-const cols = screen.width > 425 ?20:15;
-const rows = screen.width > 425 ?15:25;
-canvas.width = cols*square_size;
-canvas.height = rows*square_size;
+const cols = screen.width > 425 ? 20 : 15;
+const rows = screen.width > 425 ? 15 : 25;
+canvas.width = cols * square_size;
+canvas.height = rows * square_size;
 const Score = document.getElementById("score");
 //Color of empty squares
 const empty = "#000000";
@@ -324,9 +324,24 @@ function CONTROL(event) {
         p.moveDown();
     }
 }
-// function MOBILECONTROL(event){
 
-// }
+let upButton = document.getElementById("up-button");
+    upButton.onclick = function () {
+    p.rotate();
+}
+let moveLeft = document.getElementById("moveLeft");
+     moveLeft.onclick = function () {
+    p.moveLeft();
+}
+let moveRight = document.getElementById("moveRight");
+    moveRight.onclick = function () {
+    p.moveRight();
+}
+let moveDown= document.getElementById("moveDown");
+    moveDown.onclick=function(){
+    p.moveDown();
+}
+
 
 let dropStart = Date.now();
 
