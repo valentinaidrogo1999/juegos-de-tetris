@@ -1,12 +1,14 @@
 //Save itemdrawSq
-let canvas = document.getElementById("canva");
+const canvas = document.getElementById("canva");
+// const nextPi = document.getElementById("nextPiece")
 //Context of canvas
 let context = canvas.getContext("2d");
+// let contextNext = nextPi.getContext("2d");
 //Number of columns and rows the board will have 
-const square_size = screen.width > 425 ? 25 : 15; //Operador ternario si la pantalla es mayor a 520 que la media sea de 40 si no sera de 20
+const square_size = screen.width > 425 ? 20 : 15; //Operador ternario si la pantalla es mayor a 520 que la media sea de 40 si no sera de 20
 //const square_size = 20
 const cols = screen.width > 425 ?20:15;
-const rows = screen.width > 425 ?20:25;
+const rows = screen.width > 425 ?15:25;
 canvas.width = cols*square_size;
 canvas.height = rows*square_size;
 const Score = document.getElementById("score");
@@ -20,6 +22,7 @@ drawSquares = (x, y, color) => {
     context.strokeStyle = "#6100FF";
     context.strokeRect(x * square_size, y * square_size, square_size, square_size);
 }
+
 //Create the board
 let board = [];
 for (r = 0; r < rows; r++) {
