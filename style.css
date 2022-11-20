@@ -82,8 +82,8 @@ ul {
   justify-content: center;
   align-items: center;
   align-self: center;
-  border: 3px outset rgb(0, 204, 255);
-  background-color: cyan;
+  border: 4px outset #fff;
+  background-color: #000;
 }
 .restart img{
   width:30px;
@@ -105,12 +105,11 @@ ul {
 .controls {
   width: 25%;
   display: flex;
-  flex-flow: row wrap; 
+  flex-flow: column; 
   justify-content: center;
   align-items: center;
 }
 .buttons{
-  margin-top: -30%;
   border-radius: 35px;
 }
 .controls img {
@@ -177,14 +176,21 @@ a {
     width: 100%;
     display: flex;
     flex-direction: row;
+    margin-top: 3%;
+  }
+  .controls .texts{
+    width: 25%;
   }
   .buttons{
     display: flex;
     flex-direction: row;
   }
-  .up-button,.sides-button,.down-button{
+  .up-button,.down-button{
     width: 20%;
-
+  }
+  .left,.right{
+    width: 40%;
+    margin-right: 3%;
   }
   .modal-instructions{
     display: block;
