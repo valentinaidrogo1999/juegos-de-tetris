@@ -1,6 +1,5 @@
 //Save itemdrawSq
 const canvas = document.getElementById("canva");
-// const nextPi = document.getElementById("nextPiece")
 //Context of canvas
 let context = canvas.getContext("2d");
 // let contextNext = nextPi.getContext("2d");
@@ -8,7 +7,7 @@ let context = canvas.getContext("2d");
 const square_size = screen.width > 425 ? 20 : 15; //Operador ternario si la pantalla es mayor a 520 que la media sea de 40 si no sera de 20
 //const square_size = 20
 const cols = screen.width > 425 ? 20 : 15;
-const rows = screen.width > 425 ? 15 : 25;
+const rows = screen.width > 425 ? 15 : 20;
 canvas.width = cols * square_size;
 canvas.height = rows * square_size;
 const Score = document.getElementById("score");
@@ -255,7 +254,10 @@ Piece.prototype.lock = function () {
                 continue;
             }
             if (this.y + r < 0) {
-                alert("Game Over");
+                swal({
+                    title: "Game Over",
+                    icon :"img/game over.png",
+                  });
                 gameOver = true;
                 break;
             }
