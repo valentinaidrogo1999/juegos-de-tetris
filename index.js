@@ -269,9 +269,10 @@ Piece.prototype.lock = function () {
                     confirmButtonText:'Volver a jugar'
                   });
                   if(restartGame){
-                    restart();
-                }
-               })()
+                      restart();
+                    }
+                })()
+                clearInterval(intervalId)
             }
             board[this.y + r][this.x + c] = this.color;
         }

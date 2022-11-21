@@ -30,13 +30,16 @@ modal.addEventListener("click", (e) => e.stopPropagation());
 let intervalId;
 let contador = 0 ;
 
-document.querySelector("text")
-document.addEventListener("click", () =>{
+//funcion para el tiempo
+
+document.querySelector(".texts")
+function time (){
   intervalId = setInterval(() =>{
     document.querySelector(".tiempo").textContent = contador;
     contador++;
     
   }, 1000)
   
-})
+}
 
+time()
