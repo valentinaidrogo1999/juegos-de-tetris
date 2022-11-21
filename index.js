@@ -259,6 +259,7 @@ Piece.prototype.lock = function () {
                   });
                 gameOver = true;
                 break;
+       
             }
             board[this.y + r][this.x + c] = this.color;
         }
@@ -280,6 +281,7 @@ Piece.prototype.lock = function () {
             }
             score += 10;
         }
+       
     }
     drawBoard();
     Score.innerHTML = score;

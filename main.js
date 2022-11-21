@@ -36,6 +36,7 @@ document.addEventListener("click", () =>{
   intervalId = setInterval(() =>{
     document.querySelector(".tiempo").textContent = contador;
     contador++;
+    
 
   }, 1000)
 

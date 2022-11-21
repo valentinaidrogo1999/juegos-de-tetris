@@ -24,7 +24,7 @@ button{
   border-radius: 15%;
 }
 /*Welcome title*/
-.welcome p {
+.welcome p , h2 {
   text-align: center;
   font-family: var(--font);
   font-size: clamp(1.563rem, 5vw, 2.3rem);
@@ -36,7 +36,7 @@ button{
   margin-bottom: 5%;
 }
 /*------------welcome letter color------------*/
-.welcome p{
+.welcome p , h2{
   background-image: linear-gradient(
     to right,
     orangered,
@@ -69,7 +69,7 @@ button{
   align-items: center;
   font-family: var(--font);
 }
-.texts , h3{
+.texts , h3 {
   width: 100%;
   font-size: clamp(0.5rem, 2vw, 1.15rem);
   color: white;
@@ -90,6 +90,7 @@ ul {
   justify-content: center;
   align-items: center;
   align-self: center;
+  flex-wrap: wrap;
   border: 4px outset #fff;
   background-color: #000;
 }
@@ -242,6 +243,63 @@ a {
 #movil-instructions {
   display: block;
 }
+
+/*----------------footer-----------------*/
+
+footer {
+  padding: 10px 20px;
+  background-color: rgb(0, 0, 0);
+  color: rgb(250, 249, 249);
+  width: 95.2vw;
+  height: auto;
+ margin-top: 20px;
+ text-align: center;
+ display: flex;
+ justify-content:space-between;
+ flex-wrap: wrap;
+ border: 5px solid grey;
+ box-shadow: 5px 5px 150px rgb(45, 224, 248);
+}
+.javascript img{
+ 
+width: 50px;
+height: 50px;
+}
+.logos i{
+  color: yellow;
+}
+.logos , .centro{
+  font-size: 50px;
+  
+}
+.codigo i{
+ color: rgb(163, 163, 163);
+}
+.html5{
+  color: orangered;
+}
+.css3{
+  color: #2594c7;
+}
+.centro {
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+.centro i, .javascript img{
+  margin: 20px 20px;
+}
+footer li{
+  line-height: auto;
+  
+}
+footer h2{
+  font-size: 20px;
+}
+footer li{
+  font-size: 10px;
+  margin: 10px 20px;
+}
 @media (max-width: 768px) {
   
   .gameSpace{
@@ -293,6 +351,15 @@ a {
   #texts p {
     margin: 20px 20px;
   }
+  .restart{
+    display: flex;
+    flex-wrap: wrap;
+   position: relative;
+   left: 110px;
+  
+    border: 4px outset #fff;
+    background-color: #000;
+  }
   .restart img{
     width: 25px;
     height: 25px;
@@ -310,4 +377,27 @@ a {
   font-size: 25px;
   
 }
+
+.logos , .centro{
+  font-size: 30px;
+}
+footer h2{
+  font-size: 10px;
+}
+footer li{
+  font-size: 10px;
+  margin: 10px 20px;
+}
+footer {
+ justify-content:center;
+ 
+}
+.javascript img{
+  width: 30px;
+  height: 30px;
+}
+.centro{
+  margin: 20px 30px;
+}
+
 }
