@@ -256,10 +256,12 @@ Piece.prototype.lock = function () {
                 swal({
                     title: "Game Over",
                     icon :"img/game over.png",
-                  });
+                });
+                //detencion del tiempo cuando llega a game over
                 gameOver = true;
+                clearInterval(intervalId)
                 break;
-       
+                
             }
             board[this.y + r][this.x + c] = this.color;
         }
@@ -285,6 +287,7 @@ Piece.prototype.lock = function () {
     }
     drawBoard();
     Score.innerHTML = score;
+    
 }
 
 Piece.prototype.collision = function (x, y, piece) {
@@ -336,7 +339,7 @@ let moveLeft = document.getElementById("moveLeft");
     p.moveLeft();
 }
 let moveRight = document.getElementById("moveRight");
-    moveRight.onclick = function () {
+moveRight.onclick = function () {
     p.moveRight();
 }
 let moveDown= document.getElementById("moveDown");
