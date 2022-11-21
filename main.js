@@ -36,7 +36,7 @@ document.addEventListener("click", () =>{
     document.querySelector(".tiempo").textContent = contador;
     contador++;
     
-  }, 1000)
+  }, 10000)
   
 })
 

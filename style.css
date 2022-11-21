@@ -1,12 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 :root {
   --bg-game: #030728;
   --border-color: #232f6f;
   --font-color: #fff;
-  --font:'Press Start 2P', cursive;
-}
-.white{
-  color: white;
+  --font: "Press Start 2P", cursive;
 }
 body {
   font-family: var(--font);
@@ -15,7 +12,7 @@ body {
   box-sizing: border-box;
   background-color: var(--bg-game);
 }
-button{
+button {
   padding: 0;
   cursor: pointer;
   display: flex;
@@ -27,7 +24,8 @@ button{
   border-radius: 15%;
 }
 /*Welcome title*/
-.welcome p , h2 {
+.welcome p,
+h2 {
   text-align: center;
   font-family: var(--font);
   font-size: clamp(1.563rem, 5vw, 2.3rem);
@@ -39,7 +37,8 @@ button{
   margin-bottom: 5%;
 }
 /*------------welcome letter color------------*/
-.welcome p , h2{
+.welcome p,
+h2 {
   background-image: linear-gradient(
     to right,
     orangered,
@@ -59,12 +58,11 @@ button{
     background-position: -2000vw;
   }
 }
-
 .gameSpace {
   display: flex;
   flex-flow: row wrap;
 }
-.game-score{
+.game-score {
   width: 25%;
   display: flex;
   flex-direction: column;
@@ -72,23 +70,25 @@ button{
   align-items: center;
   font-family: var(--font);
 }
-.texts , h3 {
+.texts,
+h3 {
   width: 100%;
   font-size: clamp(0.5rem, 2vw, 1.15rem);
   color: white;
-  font-weight:lighter;
+  font-weight: lighter;
   text-align: center;
   font-family: var(--font);
   line-height: 40px;
 }
-#score , h3{
-  font-size:clamp(1.5rem, 3vw, 2rem);
+#score,
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
 }
 ul {
   list-style: none;
   padding: 0;
 }
-.restart{
+.restart {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -97,19 +97,19 @@ ul {
   border: 4px outset #fff;
   background-color: #000;
 }
-.restart img{
-  width:30px;
+.restart img {
+  width: 30px;
   height: 30px;
   padding: 6px;
 }
 /*Tetris canvas*/
 .tetris {
-  width: 50%; 
+  width: 50%;
   display: flex;
   justify-content: center;
 }
-#canva{
-  border: 3px solid #7000FF;
+#canva {
+  border: 3px solid #7000ff;
   width: 100%;
   height: 100%;
 }
@@ -118,23 +118,25 @@ ul {
 .controls {
   width: 25%;
   display: flex;
-  flex-flow: column; 
+  flex-flow: column;
   justify-content: center;
   align-items: center;
 }
-.buttons{
+.buttons {
   border-radius: 35px;
 }
 .controls img {
   width: 40px;
   height: 40px;
 }
-.up-button,.sides-button,.down-button{
+.up-button,
+.sides-button,
+.down-button {
   width: 100%;
   display: flex;
   justify-content: center;
 }
-.left{
+.left {
   margin-right: 50%;
 }
 
@@ -149,7 +151,7 @@ ul {
   font-family: var(--font);
   font-size: 1rem;
 }
-.instruction p{
+.instruction p {
   line-height: 25px;
 }
 /*styles for mobile instructions*/
@@ -159,17 +161,17 @@ ul {
   width: 100%;
   height: 100%;
 }
-#instrucciones{
+#instrucciones {
   margin-top: 20%;
   color: var(--font-color);
   font-size: clamp(0.5rem, 2vw, 1rem);
-  font-weight:lighter; 
+  font-weight: lighter;
 }
 #movil-instructions {
   display: none;
 }
- /*----------------------parte de la pagina modal-------------------*/
- .modal-capita {
+/*----------------------parte de la pagina modal-------------------*/
+.modal-capita {
   background-color: rgba(0, 0, 0, 0.7);
   position: fixed;
   top: 0;
@@ -216,8 +218,8 @@ ul {
   top: 10px;
   right: 10px;
   cursor: pointer;
-  font-weight:lighter;
-  margin: 2%; 
+  font-weight: lighter;
+  margin: 2%;
 }
 /*-------------------------*/
 .primera-parte {
@@ -225,7 +227,7 @@ ul {
   justify-content: center;
   flex-direction: column;
 }
-.primera-parte img{
+.primera-parte img {
   margin: 0 10px;
 }
 
@@ -234,10 +236,10 @@ ul {
   justify-content: center;
   margin: 20px 0;
 }
-#boton button{
+#boton button {
   background-color: #7cd1f9;
   border: 0px solid #7cd1f9;
-  color:#000;
+  color: #000;
   width: 30%;
   font-size: 1.5rem;
   border-radius: 10px;
@@ -253,100 +255,106 @@ footer {
   padding: 10px 20px;
   background-color: rgb(0, 0, 0);
   color: rgb(250, 249, 249);
-  width: 95.2vw;
-  height: auto;
- margin-top: 20px;
- text-align: center;
- display: flex;
- justify-content:space-between;
- flex-wrap: wrap;
- border: 5px solid grey;
- box-shadow: 5px 5px 150px rgb(45, 224, 248);
+  margin-top: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  border: 5px solid rgb(65, 64, 64);
+  box-shadow: 5px 5px 150px rgb(45, 224, 248);
 }
-.javascript img{
- 
-width: 50px;
-height: 50px;
+.javascript img {
+  width: 30px;
+  height: 30px;
 }
-.logos i{
+.logos i {
   color: yellow;
 }
-.logos , .centro{
-  font-size: 50px;
-  
+.logos{
+  display: flex;
+  flex-flow: row wrap;
 }
-.codigo i{
- color: rgb(163, 163, 163);
+.logos,
+.centro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 33%;
+  font-size: 30px;
 }
-.html5{
+.codigo i {
+  color: rgb(75, 75, 75);
+}
+.html5 {
   color: orangered;
 }
-.css3{
+.css3 {
   color: #2594c7;
 }
 .centro {
   display: flex;
-  flex-wrap: wrap;
-  
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
-.centro i, .javascript img{
-  margin: 20px 20px;
+.centro i,
+.javascript img {
+  margin: 10px 10px;
 }
-footer li{
-  line-height: auto;
-  
+footer h2 {
+  font-size: 15px;
 }
-footer h2{
-  font-size: 20px;
-}
-footer li{
+footer li {
   font-size: 10px;
-  margin: 10px 20px;
+}
+footer .parrafos{
+  display: flex;
+  width: 33%;
+  justify-content: center;
 }
 @media (max-width: 768px) {
-  
-  .gameSpace{
+  .gameSpace {
     width: 100%;
   }
-  .game-score{
+  .game-score {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     flex-basis: 100%;
     align-items: baseline;
   }
-  .points{
+  .points {
     width: 30%;
   }
-  .next{
+  .next {
     width: 30%;
   }
-  a{
+  a {
     margin-top: 0;
   }
-  .controls{
+  .controls {
     width: 100%;
     display: flex;
     flex-direction: row;
     margin-top: 3%;
-  
   }
-  .controls .texts{
+  .controls .texts {
     width: 25%;
   }
   .controls img {
     width: 30px;
     height: 30px;
   }
-  .buttons{
+  .buttons {
     display: flex;
     flex-direction: row;
   }
- 
-  .up-button,.down-button{
+
+  .up-button,
+  .down-button {
     width: 20%;
   }
-  .left,.right{
+  .left,
+  .right {
     width: 40%;
     margin-right: 3%;
   }
@@ -354,53 +362,54 @@ footer li{
   #texts p {
     margin: 20px 20px;
   }
-  .restart{
+  .restart {
     display: flex;
     flex-wrap: wrap;
-   position: relative;
-   left: 110px;
-  
+    position: relative;
+    left: 110px;
+
     border: 4px outset #fff;
     background-color: #000;
   }
-  .restart img{
+  .restart img {
     width: 25px;
     height: 25px;
   }
-  .tetris{
+  .tetris {
     display: flex;
     width: 90%;
     margin-left: 5%;
   }
-  .modal{
+  .modal {
     width: 300px;
   }
-.welcome p {
- margin-top: 50px;
-  font-size: 25px;
-  
-}
+  .welcome p {
+    margin-top: 50px;
+    font-size: 25px;
+  }
 
-.logos , .centro{
-  font-size: 30px;
-}
-footer h2{
-  font-size: 10px;
-}
-footer li{
-  font-size: 10px;
-  margin: 10px 20px;
-}
-footer {
- justify-content:center;
- 
-}
-.javascript img{
-  width: 30px;
-  height: 30px;
-}
-.centro{
-  margin: 20px 30px;
-}
-
+  .logos,
+  .centro {
+    font-size: 15px;
+  }
+  footer h2 {
+    font-size: 10px;
+  }
+  footer li {
+    font-size: 10px;
+    margin: 10px 20px;
+  }
+  footer {
+    justify-content: center;
+  }
+  .javascript img {
+    width: 15px;
+    height: 15px;
+  }
+  .centro {
+    margin: 20px 30px;
+  }
+  footer .parrafos{
+    font-size: 5px;
+  }
 }
