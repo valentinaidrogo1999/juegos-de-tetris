@@ -178,7 +178,7 @@ function Piece(figure, color) {
     this.newFigure = 0;//Starts from the first position of the figure,index for the matrix of positions of each piece
     this.actFigure = this.figure[this.newFigure];//Selected figure in a specific position
     //Here we define the location of the pieces when they appear on the board for the first time
-    this.x = 8;//The figure appears at position 8 in x
+    this.x = 7;//The figure appears at position 7 in x
     this.y = -1;
 }
 
@@ -259,16 +259,26 @@ Piece.prototype.lock = function () {
             }
             // Piece to lock on top = game over
             if (this.y + r < 1) {
-                swal({
-                    title: "Game Over",
-                    icon :"img/game over.png",
+               (async ()=>{
+                const {value: restartGame}= await Swal.fire({
+                    title: '<span class="white">Game Over</span>',
+                    background:"#000",
+                    imageUrl :"img/game over.png",
+                    imageWidth:150,
+                    allowOutsideClick:false,
+                    confirmButtonText:'Volver a jugar'
                   });
+                  if(restartGame){
+                    restart();
+                }
+               })()
                 gameOver = true;
                 break;
             }
             board[this.y + r][this.x + c] = this.color;
         }
     }
+        
      //Delete entire rows and add points 10 points per row to the score 
     for (r = 0; r < rows; r++) {
         let isRowFull = true;

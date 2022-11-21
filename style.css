@@ -5,6 +5,9 @@
   --font-color: #fff;
   --font:'Press Start 2P', cursive;
 }
+.white{
+  color: white;
+}
 body {
   font-family: var(--font);
   margin: 0;
