@@ -1,14 +1,13 @@
-//Save itemdrawSq
-let canvas = document.getElementById("canva");
+const canvas = document.getElementById("canva");
 //Context of canvas
 let context = canvas.getContext("2d");
+//Squares size
+const square_size = screen.width > 425 ? 20 : 15; //Ternary operator if the screen is greater than 425 that the average is 20 if it is not 15
 //Number of columns and rows the board will have 
-const square_size = screen.width > 425 ? 25 : 15; //Operador ternario si la pantalla es mayor a 520 que la media sea de 40 si no sera de 20
-//const square_size = 20
-const cols = screen.width > 425 ?20:15;
-const rows = screen.width > 425 ?20:25;
-canvas.width = cols*square_size;
-canvas.height = rows*square_size;
+const cols = screen.width > 425 ? 20 : 15;
+const rows = screen.width > 425 ? 15 : 20;
+canvas.width = cols * square_size;
+canvas.height = rows * square_size;
 const Score = document.getElementById("score");
 //Color of empty squares
 const empty = "#000000";
@@ -20,6 +19,7 @@ drawSquares = (x, y, color) => {
     context.strokeStyle = "#6100FF";
     context.strokeRect(x * square_size, y * square_size, square_size, square_size);
 }
+
 //Create the board
 let board = [];
 for (r = 0; r < rows; r++) {
@@ -161,11 +161,11 @@ const pieces = [
     [L, "#FF5C00"],
     [J, "#0038FF"]
 ];
-
+//We generate random pieces. A random number between 0 and 6 is chosen, which will be the index to select the piece of the matrix.
 function randomPiece() {
-    if (!gameOver) {
-        let randPiece = Math.floor(Math.random() * pieces.length)
-        return new Piece(pieces[randPiece][0], pieces[randPiece][1])
+    if (!gameOver) {//If the function is different from game over
+        let randPiece = Math.floor(Math.random() * pieces.length)//Math.floor rounds down and returns the largest integer less than or equal to a given number.
+        return new Piece(pieces[randPiece][0], pieces[randPiece][1])//Returns a new piece with the arguments for the parameters requested by the function, which are the type of piece and its color.
     }
 }
 let p = randomPiece();
@@ -173,10 +173,11 @@ let p = randomPiece();
 function Piece(figure, color) {
     this.figure = figure;
     this.color = color;
-    this.newFigure = 0;
-    this.actFigure = this.figure[this.newFigure];
-    this.x = 3;
-    this.y = -2;
+    this.newFigure = 0;//Starts from the first position of the figure,index for the matrix of positions of each piece
+    this.actFigure = this.figure[this.newFigure];//Selected figure in a specific position
+    //Here we define the location of the pieces when they appear on the board for the first time
+    this.x = 8;// the figure appears in the center
+    this.y = -1;
 }
 
 Piece.prototype.fill = function (color) {
@@ -203,7 +204,6 @@ Piece.prototype.moveDown = function () {
         this.y++;
         this.draw();
     } else {
-
         this.lock();
         p = randomPiece();
     }
@@ -253,7 +253,10 @@ Piece.prototype.lock = function () {
                 continue;
             }
             if (this.y + r < 0) {
-                alert("Game Over");
+                swal({
+                    title: "Game Over",
+                    icon :"img/game over.png",
+                  });
                 gameOver = true;
                 break;
             }
@@ -280,7 +283,6 @@ Piece.prototype.lock = function () {
     }
     drawBoard();
     Score.innerHTML = score;
-
 }
 
 Piece.prototype.collision = function (x, y, piece) {
@@ -307,7 +309,6 @@ Piece.prototype.collision = function (x, y, piece) {
 }
 
 document.addEventListener("keydown", CONTROL);
-// document.addEventListener("touchmove",MOBILECONTROL)
 
 function CONTROL(event) {
     if (event.key == "ArrowLeft") {
@@ -323,9 +324,24 @@ function CONTROL(event) {
         p.moveDown();
     }
 }
-// function MOBILECONTROL(event){
 
-// }
+let upButton = document.getElementById("up-button");
+    upButton.onclick = function () {
+    p.rotate();
+}
+let moveLeft = document.getElementById("moveLeft");
+     moveLeft.onclick = function () {
+    p.moveLeft();
+}
+let moveRight = document.getElementById("moveRight");
+    moveRight.onclick = function () {
+    p.moveRight();
+}
+let moveDown= document.getElementById("moveDown");
+    moveDown.onclick=function(){
+    p.moveDown();
+}
+
 
 let dropStart = Date.now();
 

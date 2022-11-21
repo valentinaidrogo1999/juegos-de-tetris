@@ -25,3 +25,18 @@ modalCapita.addEventListener("click", closeModal);
 // Necesitamos evitar que cuando, hagan click en uno de los elementos HTML hijos del "modal-capita"
 // NO se ejecute su metodo "onClick" que cierra el modal
 modal.addEventListener("click", (e) => e.stopPropagation());
+
+
+
+let intervalId;
+let contador = 0 ;
+
+document.querySelector("text")
+document.addEventListener("click", () =>{
+  intervalId = setInterval(() =>{
+    document.querySelector(".tiempo").textContent = contador;
+    contador++;
+
+  }, 1000)
+
+})

@@ -1,97 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" media="" />
-    <link rel="shortcut icon" href="img/tetris.ico" />
-    <title>Juego de tetris</title>
-  </head>
-  <body>
-    <header class="welcome">
-      <p>¡Bienvenido al juego!</p>
-    </header>
-    <!--------------------->
-    <main class="gameSpace">  
-      <section class="game-score">
-          <section class="next">
-            <p class="texts">Siguiente figura:</p>
-            <div class="nextPiece"></div>
-          </section> 
-        <ul class="points">
-          <li class="texts">
-            Puntaje:
-            <p class="texts" id="score">0</p>
-          </li>
-        </ul>
-      <!------------ Instructions---------------->
-        <ul class="modal-instructions">
-            <li id="instrucciones"><a href="">Instrucciones</a></li>
-        </ul>
-      </section>
-    <section class="tetris">
-       <canvas id="canva"></canvas>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" media="" />
+  <link rel="shortcut icon" href="img/tetris.ico" />
+  <title>Juego de tetris</title>
+</head>
+
+<body>
+  <header class="welcome">
+    <p>¡Bienvenido al juego!</p>
+  </header>
+  <!--------------------->
+  <main class="gameSpace">
+    <section class="game-score">
+      <ul class="points">
+      <li><button class="texts">tiempo</button> 
+        <h3 class="tiempo">0</h3></li> 
+        <li class="texts">
+          Puntaje:
+          <p class="texts" id="score">0</p>
+        </li>
+      </ul>
+      <button onclick="restart()" class="restart">
+        <img src="img/reload.png" alt="restart">
+      </button>
+      <!------------ Instructions and controls---------------->
+      <a href="" id="instrucciones">Instrucciones</a>
     </section>
-    <aside class="instructions">
-      <p class="texts">Controles de juego</p>
-        <div class="instruction">
-          <img src="../img/up-arrow.png" alt="rotation" />
-          <p>Rotación de figura</p>
+    <section class="tetris">
+      <canvas id="canva"></canvas>
+    </section>
+    <aside class="controls">
+      <p class="texts">Controles</p>
+      <div class="buttons">
+        <div class="up-button">
+          <button  id="up-button"><img src="img/up-arrow.png" alt="rotation" /></button>
         </div>
-        <div class="instruction">
-          <img src="../img/left-arrow.png" alt="left" />
-          <p>Mover hacia la izquierda</p>
+        <div class="sides-button">
+          <button id="moveLeft" class="left"><img src="img/left-arrow.png" alt="left" /></button>
+          <button id="moveRight" class="right"><img src="img/right-arrow.png" alt="right" /></button>
         </div>
-        <div class="instruction">
-          <img src="../img/right-arrow.png" alt="right" />
-          <p>Mover hacia la derecha</p>
+        <div class="down-button">
+          <button id="moveDown"><img src="img/down arrow.png" alt="down" /></button>
         </div>
-        <div class="instruction">
-          <img src="../img/down arrow.png" alt="down" />
-          <p>Mover hacia abajo</p>
-        </div>
-      </aside>
-        <!------------------Modal-------------------->
+      </div>
+    </aside>
+    <!------------------Modal instructions-------------------->
     <section id="movil-instructions">
-
-        <div class="modal-capita">
-            <div class="modal">
-                <section class="welcome">
-                    <p>¡Bienvenido al juego!</p>
-                </section>
-        
-                <section id="instrucciones-movil">
-                    <section class="primera-parte">
-                        <ul>
-                            <li><img src="img/arcticons_tap-tap.png" alt="imagen de manito tap"></li>
-                            <li><img src="img/mdi_gesture-swipe-left.png" alt=""></li>
-                            <li><img class="vector" src="img/Vector.png" alt=""></li>
-                            <li><img src="img/mdi_gesture-swipe-down.png" alt=""></li>
-                        </ul>
-
-                        <section class="parrafos">
-                            <p>Tap para rotar la figura</p>
-                            <p>Desliza para mover hacia la izquierda</p>
-                            <p>Desliza para mover hacia la  derecha</p>
-                            <p> Desliza para mover hacia abajo</p>
-                        </section>
-
-                    </section>
-            
-                    <section id="boton">
-                        <button onclick="restart()" class="open">Iniciar</button>
-        
-                    </section>
-                </section>
-
-                <a href="#"class="btn-modal">X</a>
-            </div>
+      <div class="modal-capita">
+        <div class="modal">
+          <section class="welcome">
+            <p>¡Bienvenido al juego!</p>
+          </section>
+          <section id="instrucciones-movil">
+            <section class="primera-parte">
+              <div class="instruction">
+                <img src="img/up-arrow.png" alt="rotation" />
+                <p>Rotar figura</p>
+              </div>
+              <div class="instruction">
+                <img src="img/left-arrow.png" alt="left" />
+                <p>Izquierda</p>
+              </div>
+              <div class="instruction">
+                <img src="img/right-arrow.png" alt="right" />
+                <p>Derecha</p>
+              </div>
+              <div class="instruction">
+                <img src="img/down arrow.png" alt="down" />
+                <p>Abajo</p>
+              </div>
+            </section>
+            <section id="boton">
+              <button onclick="restart()" class="open">Iniciar</button>
+            </section>
+          </section>
+          <a href="#" class="btn-modal">X</a>
         </div>
-
-    <!----------------------------------->
-    </main>
-    <script src="index.js"></script>
-    <script src="main.js"></script>
-  </body>
+      </div>
+ 
+      <!----------------------------------->
+  </main>
+  <script src="index.js"></script>
+  <script src="main.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
 </html>
+Footer

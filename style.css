@@ -1,29 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 :root {
   --bg-game: #030728;
   --border-color: #232f6f;
   --font-color: #fff;
+  --font:'Press Start 2P', cursive;
 }
 body {
+  font-family: var(--font);
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   background-color: var(--bg-game);
-  font-family: "Inter", sans-serif;
+}
+button{
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  border: 4px outset #fff;
+  background-color: #000;
+  border-radius: 15%;
 }
 /*Welcome title*/
 .welcome p {
   text-align: center;
+  font-family: var(--font);
   font-size: clamp(1.563rem, 5vw, 2.3rem);
   font-weight: bold;
   color: white;
   animation: sliding 60s linear infinite;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 2%;
+  margin-bottom: 5%;
 }
 /*------------welcome letter color------------*/
-.welcome p,
-button {
+.welcome p{
   background-image: linear-gradient(
     to right,
     orangered,
@@ -43,6 +56,7 @@ button {
     background-position: -2000vw;
   }
 }
+
 .gameSpace {
   display: flex;
   flex-flow: row wrap;
@@ -51,19 +65,38 @@ button {
   width: 25%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font);
 }
-.texts {
-  font-size: clamp(0.8rem, 2vw, 1.17rem);
+.texts , h3{
+  width: 100%;
+  font-size: clamp(0.5rem, 2vw, 1.15rem);
   color: white;
-  font-weight: bold;
+  font-weight:lighter;
   text-align: center;
+  font-family: var(--font);
+  line-height: 40px;
 }
-#score{
-  font-size:clamp(1.7rem, 3vw, 2rem);
+#score , h3{
+  font-size:clamp(1.5rem, 3vw, 2rem);
 }
 ul {
   list-style: none;
   padding: 0;
+}
+.restart{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  border: 4px outset #fff;
+  background-color: #000;
+}
+.restart img{
+  width:30px;
+  height: 30px;
+  padding: 6px;
 }
 /*Tetris canvas*/
 .tetris {
@@ -73,49 +106,48 @@ ul {
 }
 #canva{
   border: 3px solid #7000FF;
+  width: 100%;
+  height: 100%;
 }
-#instrucciones-movil #boton {
-  display: flex;
-  justify-content: center;
-  margin: 20px 0;
-}
-/*Home button styles*/
-/*estilos del boton de inicio*/
 
-button {
-  width: 150px;
-  height: 50px;
-  border-radius: 10px;
-  border: none;
-  font-size: 25px;
-  font-weight: 900;
-}
-/*------------------------*/
-button a {
-  text-decoration: none;
-  color: var(--color-enlaces);
-}
-/*---------------------------------*/
-/*Instruction side*/
-.instructions {
+/*Controls*/
+.controls {
   width: 25%;
   display: flex;
-  flex-direction: column; 
+  flex-flow: column; 
+  justify-content: center;
+  align-items: center;
 }
+.buttons{
+  border-radius: 35px;
+}
+.controls img {
+  width: 40px;
+  height: 40px;
+}
+.up-button,.sides-button,.down-button{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.left{
+  margin-right: 50%;
+}
+
 .instruction {
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   margin: 10px 0;
   padding-left: 4%;
   color: white;
+  font-family: var(--font);
+  font-size: 1rem;
 }
-.instruction img {
-  width: 30px;
-  height: 30px;
+.instruction p{
+  line-height: 25px;
 }
-
-
 /*styles for mobile instructions*/
 #instrucciones-movil {
   display: block;
@@ -123,63 +155,18 @@ button a {
   width: 100%;
   height: 100%;
 }
-
+a {
+  margin-top: 20%;
+  color: var(--font-color);
+  font-size: clamp(0.5rem, 2vw, 1rem);
+  font-weight:lighter; 
+}
 #movil-instructions {
   display: none;
 }
-.modal-instructions{
-  display: none;
-}
-
-
-@media (max-width: 768px) {
-  .gameSpace{
-    width: 100%;
-  }
-  .game-score{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    flex-basis: 100%;
-    align-items: baseline;
-  }
-  .points{
-    width: 30%;
-  }
-  .next{
-    width: 30%;
-  }
-  .modal-instructions{
-    display: block;
-    width: 30%;
-    text-align: center;
-    color: var(--font-color);
-  }
-  .instruction {
-    display: none;
-  }
-  #movil-instructions {
-    display: block;
-  }
-  a {
-    color: var(--font-color);
-    font-size: clamp(0.8rem, 2vw, 1.17rem);
-    font-weight:bold;
-  }
-  #texts p {
-    margin: 20px 20px;
-  }
-
-  .instructions {
-    display: none;
-  }
-  .tetris{
-    width: 100%;
-  }
-
  /*----------------------parte de la pagina modal-------------------*/
-.modal-capita {
-  background-color: rgba(0, 0, 0, 0.5);
+ .modal-capita {
+  background-color: rgba(0, 0, 0, 0.7);
   position: fixed;
   top: 0;
   left: 0;
@@ -192,13 +179,12 @@ button a {
 .modal-fondo {
   display: flex;
 }
-
 .modal {
   background: #000;
-  width: 300px;
+  width: 600px;
   height: 550px;
   position: relative;
-  top: 24px;
+  top: 50px;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.7s;
@@ -230,25 +216,10 @@ button a {
   cursor: pointer;
 }
 /*-------------------------*/
-
-
-ul img {
-  width: 30px;
-  height: 30px;
-}
-.vector {
-  width: 25px;
-  height: 25px;
-}
-ul {
-  list-style: none;
-}
-ul li {
-  margin-top: 40px;
-}
 .primera-parte {
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 .primera-parte img{
   margin: 0 10px;
@@ -259,15 +230,84 @@ ul li {
   justify-content: center;
   margin: 20px 0;
 }
-.parrafos p {
-  margin-top: 50px;
-  color:#fff;
-  width: 165px;
+#boton button{
+  background-color: #7cd1f9;
+  border: 0px solid #7cd1f9;
+  color:#000;
+  width: 30%;
+  font-size: 1.5rem;
+  border-radius: 10px;
 }
+
+#movil-instructions {
+  display: block;
+}
+@media (max-width: 768px) {
+  
+  .gameSpace{
+    width: 100%;
+  }
+  .game-score{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-basis: 100%;
+    align-items: baseline;
+  }
+  .points{
+    width: 30%;
+  }
+  .next{
+    width: 30%;
+  }
+  a{
+    margin-top: 0;
+  }
+  .controls{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 3%;
+  
+  }
+  .controls .texts{
+    width: 25%;
+  }
+  .controls img {
+    width: 30px;
+    height: 30px;
+  }
+  .buttons{
+    display: flex;
+    flex-direction: row;
+  }
+ 
+  .up-button,.down-button{
+    width: 20%;
+  }
+  .left,.right{
+    width: 40%;
+    margin-right: 3%;
+  }
+
+  #texts p {
+    margin: 20px 20px;
+  }
+  .restart img{
+    width: 25px;
+    height: 25px;
+  }
+  .tetris{
+    display: flex;
+    width: 90%;
+    margin-left: 5%;
+  }
+  .modal{
+    width: 300px;
+  }
 .welcome p {
- margin-top: 30px;
+ margin-top: 50px;
   font-size: 25px;
   
 }
-
 }
