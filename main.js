@@ -5,7 +5,6 @@ const modalCapita = document.querySelector(".modal-capita");
 const closeButton = document.querySelector(".btn-modal");
 
 const closeModal = (e) => {
-  console.log("Elemento clickeado", e.target);
   e.preventDefault();
   modal.classList.remove("modal--show");
   modalCapita.classList.remove("modal-fondo");

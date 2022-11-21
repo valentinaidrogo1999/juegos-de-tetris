@@ -11,7 +11,9 @@ canvas.height = rows * square_size;
 const Score = document.getElementById("score");
 //Color of empty squares
 const empty = "#000000";
+let score = 0;
 var gameOver = false;
+
 //function to draw the squares
 drawSquares = (x, y, color) => {
     context.fillStyle = color;//Color of the square
@@ -176,39 +178,41 @@ function Piece(figure, color) {
     this.newFigure = 0;//Starts from the first position of the figure,index for the matrix of positions of each piece
     this.actFigure = this.figure[this.newFigure];//Selected figure in a specific position
     //Here we define the location of the pieces when they appear on the board for the first time
-    this.x = 8;// the figure appears in the center
+    this.x = 8;//The figure appears at position 8 in x
     this.y = -1;
 }
 
 Piece.prototype.fill = function (color) {
-    for (r = 0; r < this.actFigure.length; r++) {
-        for (c = 0; c < this.actFigure.length; c++) {
-            if (this.actFigure[r][c]) {
+    for (r = 0; r < this.actFigure.length; r++) {// Array's rows  of the figure's specific position 
+        for (c = 0; c < this.actFigure.length; c++) {// Array's cols  of the figure's specific position 
+            //We draw only the occupied square
+            if (this.actFigure[r][c]) {// each square in the array of the specific position of the figure
                 drawSquares(this.x + c, this.y + r, color);
             }
         }
     }
 }
-
+//Draw a piece to the board
 Piece.prototype.draw = function () {
     this.fill(this.color);
 }
-
+//Color for empty or not drawn squares
 Piece.prototype.unDraw = function () {
     this.fill(empty);
 }
-
+//Move down the piece
 Piece.prototype.moveDown = function () {
     if (!this.collision(0, 1, this.actFigure)) {
         this.unDraw();
         this.y++;
         this.draw();
     } else {
+        //We look the piece and generate a new one
         this.lock();
         p = randomPiece();
     }
 }
-
+//Move right the piece
 Piece.prototype.moveRight = function () {
     if (!this.collision(1, 0, this.actFigure)) {
         this.unDraw();
@@ -216,7 +220,7 @@ Piece.prototype.moveRight = function () {
         this.draw();
     }
 }
-
+//Move left the piece
 Piece.prototype.moveLeft = function () {
     if (!this.collision(-1, 0, this.actFigure)) {
         this.unDraw();
@@ -224,16 +228,16 @@ Piece.prototype.moveLeft = function () {
         this.draw();
     }
 }
-
+ //Rotate the piece
 Piece.prototype.rotate = function () {
-    let nextPat = this.figure[(this.newFigure + 1) % this.figure.length];
+    let nextPat = this.figure[(this.newFigure + 1) % this.figure.length];// Increment the figure number 
     let kick = 0;
 
     if (this.collision(0, 0, nextPat)) {
-        if (this.x > cols / 2) {
-            kick = -1;
+        if (this.x > cols / 2) {// Collision in the right wall
+            kick = -1;//We need to move the piece to the left
         } else {
-            kick = 1;
+            kick = 1;//We need to move the piece to the right
         }
     }
 
@@ -245,14 +249,16 @@ Piece.prototype.rotate = function () {
         this.draw();
     }
 }
-let score = 0;
+
+// Lock the piece when it reaches the end or when it is over another figure
 Piece.prototype.lock = function () {
     for (r = 0; r < this.actFigure.length; r++) {
         for (c = 0; c < this.actFigure.length; c++) {
             if (!this.actFigure[r][c]) {
                 continue;
             }
-            if (this.y + r < 0) {
+            // Piece to lock on top = game over
+            if (this.y + r < 1) {
                 swal({
                     title: "Game Over",
                     icon :"img/game over.png",
@@ -263,13 +269,15 @@ Piece.prototype.lock = function () {
             board[this.y + r][this.x + c] = this.color;
         }
     }
-
+     //Delete entire rows and add points 10 points per row to the score 
     for (r = 0; r < rows; r++) {
         let isRowFull = true;
         for (c = 0; c < cols; c++) {
-            isRowFull = isRowFull && (board[r][c] != empty);
+            isRowFull = isRowFull && (board[r][c] != empty);// The row is full, all of the square taken and have a color
         }
         if (isRowFull) {
+            // if the row is full
+            // we move down all the rows above it
             for (y = r; y > 1; y--) {
                 for (c = 0; c < cols; c++) {
                     board[y][c] = board[y - 1][c];
@@ -281,25 +289,30 @@ Piece.prototype.lock = function () {
             score += 10;
         }
     }
+    // update the board and the score
     drawBoard();
     Score.innerHTML = score;
 }
 
 Piece.prototype.collision = function (x, y, piece) {
-    for (r = 0; r < piece.length; r++) {
+    for (r = 0; r < piece.length; r++) {//Check all the squares of the figure
         for (c = 0; c < piece.length; c++) {
+             // if the square is empty within the piece array, we skip it
             if (!piece[r][c]) {
                 continue;
             }
+            // coordinates of the piece after movement
             let newX = this.x + c + x;
             let newY = this.y + r + y;
 
-            if (newX < 0 || newX >= cols || newY >= rows) {
+            if (newX < 0 || newX >= cols || newY >= rows) {// Collision due to the canva's margin
                 return true;
             }
+             // skip newY < 0; board[-1] will crush our game because there is not index with -1
             if (newY < 0) {
                 continue;
             }
+             // check if there is a locked piece alrady in place
             if (board[newY][newX] != empty) {
                 return true;
             }
@@ -357,7 +370,7 @@ function drop() {
     }
 }
 drop();
-
+// Quit game and start a new one
 function restart() {
     window.location.reload()
 }
