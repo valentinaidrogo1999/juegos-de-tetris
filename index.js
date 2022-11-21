@@ -272,6 +272,7 @@ Piece.prototype.lock = function () {
                     restart();
                 }
                })()
+               clearInterval(intervalId)
             }
             board[this.y + r][this.x + c] = this.color;
         }

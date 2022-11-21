@@ -31,12 +31,13 @@ let intervalId;
 let contador = 0 ;
 
 document.querySelector("text")
-document.addEventListener("click", () =>{
+function time(){
   intervalId = setInterval(() =>{
     document.querySelector(".tiempo").textContent = contador;
     contador++;
     
   }, 10000)
   
-})
+}
+time();
 
