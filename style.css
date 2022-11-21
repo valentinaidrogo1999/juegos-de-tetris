@@ -56,11 +56,7 @@ button{
     background-position: -2000vw;
   }
 }
-/* button{
-  animation: sliding 60s linear infinite; 
-  font-size: clamp(0.5rem, 2vw, 1rem);
-  font-family: var(--font);
-} */
+
 .gameSpace {
   display: flex;
   flex-flow: row wrap;
@@ -114,7 +110,7 @@ ul {
   height: 100%;
 }
 
-/*Instruction side*/
+/*Controls*/
 .controls {
   width: 25%;
   display: flex;
@@ -183,7 +179,6 @@ a {
 .modal-fondo {
   display: flex;
 }
-
 .modal {
   background: #000;
   width: 600px;

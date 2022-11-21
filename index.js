@@ -1,11 +1,9 @@
-//Save itemdrawSq
 const canvas = document.getElementById("canva");
 //Context of canvas
 let context = canvas.getContext("2d");
-// let contextNext = nextPi.getContext("2d");
+//Squares size
+const square_size = screen.width > 425 ? 20 : 15; //Ternary operator if the screen is greater than 425 that the average is 20 if it is not 15
 //Number of columns and rows the board will have 
-const square_size = screen.width > 425 ? 20 : 15; //Operador ternario si la pantalla es mayor a 520 que la media sea de 40 si no sera de 20
-//const square_size = 20
 const cols = screen.width > 425 ? 20 : 15;
 const rows = screen.width > 425 ? 15 : 20;
 canvas.width = cols * square_size;
@@ -163,11 +161,11 @@ const pieces = [
     [L, "#FF5C00"],
     [J, "#0038FF"]
 ];
-
+//We generate random pieces. A random number between 0 and 6 is chosen, which will be the index to select the piece of the matrix.
 function randomPiece() {
-    if (!gameOver) {
-        let randPiece = Math.floor(Math.random() * pieces.length)
-        return new Piece(pieces[randPiece][0], pieces[randPiece][1])
+    if (!gameOver) {//If the function is different from game over
+        let randPiece = Math.floor(Math.random() * pieces.length)//Math.floor rounds down and returns the largest integer less than or equal to a given number.
+        return new Piece(pieces[randPiece][0], pieces[randPiece][1])//Returns a new piece with the arguments for the parameters requested by the function, which are the type of piece and its color.
     }
 }
 let p = randomPiece();
@@ -175,10 +173,11 @@ let p = randomPiece();
 function Piece(figure, color) {
     this.figure = figure;
     this.color = color;
-    this.newFigure = 0;
-    this.actFigure = this.figure[this.newFigure];
-    this.x = 3;
-    this.y = -2;
+    this.newFigure = 0;//Starts from the first position of the figure,index for the matrix of positions of each piece
+    this.actFigure = this.figure[this.newFigure];//Selected figure in a specific position
+    //Here we define the location of the pieces when they appear on the board for the first time
+    this.x = 8;// the figure appears in the center
+    this.y = -1;
 }
 
 Piece.prototype.fill = function (color) {
@@ -310,7 +309,6 @@ Piece.prototype.collision = function (x, y, piece) {
 }
 
 document.addEventListener("keydown", CONTROL);
-// document.addEventListener("touchmove",MOBILECONTROL)
 
 function CONTROL(event) {
     if (event.key == "ArrowLeft") {
