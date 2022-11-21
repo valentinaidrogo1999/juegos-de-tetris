@@ -259,8 +259,8 @@ Piece.prototype.lock = function () {
             }
             // Piece to lock on top = game over
             if (this.y + r < 1) {
-               (async ()=>{
-                const {value: restartGame}= await Swal.fire({
+               (async () => {
+                const {value: restartGame} = await Swal.fire({
                     title: '<span class="white">Game Over</span>',
                     background:"#000",
                     imageUrl :"img/game over.png",
@@ -272,8 +272,6 @@ Piece.prototype.lock = function () {
                     restart();
                 }
                })()
-                gameOver = true;
-                break;
             }
             board[this.y + r][this.x + c] = this.color;
         }
