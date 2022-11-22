@@ -36,7 +36,7 @@ function time(){
     document.querySelector(".tiempo").textContent = contador;
     contador++;
     
-  }, 10000)
+  }, 1000)
   
 }
 time();

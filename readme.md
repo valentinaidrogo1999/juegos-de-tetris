@@ -4,11 +4,13 @@
 <h3>Descripción del proyecto</h3>
 <hr>
 Este proyecto es una replica del conocido juego de 'Tetris', con ayuda de canvas para dibujar con JavaScript la cuadricula de juego y sus piezas además de dar funcionalidad a las mismas. 
-Podras visualizar tu puntuación y activar el tiempo para comprobar que tanto te puede tomar a llegar a tu meta personal. 
-
+Podras visualizar tu puntuación y el tiempo que llevas en juego.
+<p align="center">
+<img width="400px" src="https://user-images.githubusercontent.com/86115727/203182738-099e1758-674e-411e-9266-1430ea1ceff6.png" alt="tetris">
+</p>
 Cuenta con controles en pantalla,que se explican en las instrucciones, con estos controles puedes mover las piezas tanto en desktop como en tablet y celular.
 <p align="center">
-<img src="https://user-images.githubusercontent.com/86115727/203118055-f8980639-c710-4c16-901e-ceb6d0cebdf6.png" alt="intrtucciones-tetris">
+<img width="400px" src="https://user-images.githubusercontent.com/86115727/203118055-f8980639-c710-4c16-901e-ceb6d0cebdf6.png" alt="instrucciones-tetris">
 </p>
 <hr>
 <a href=""><h3>¡Juega aquí!</h3></a>

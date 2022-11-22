@@ -78,11 +78,11 @@ h3 {
   font-weight: lighter;
   text-align: center;
   font-family: var(--font);
-  line-height: 40px;
+  line-height: 20px;
 }
 #score,
 h3 {
-  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-size: clamp(1.3rem, 3vw, 1.9rem);
 }
 ul {
   list-style: none;
@@ -164,7 +164,7 @@ ul {
 #instrucciones {
   margin-top: 20%;
   color: var(--font-color);
-  font-size: clamp(0.5rem, 2vw, 1rem);
+  font-size: clamp(0.5rem, 2vw, 0.8rem);
   font-weight: lighter;
 }
 #movil-instructions {
@@ -320,7 +320,6 @@ footer .parrafos{
     flex-direction: row;
     justify-content: space-evenly;
     flex-basis: 100%;
-    align-items: baseline;
   }
   .points {
     width: 30%;
@@ -328,7 +327,7 @@ footer .parrafos{
   .next {
     width: 30%;
   }
-  a {
+  #instrucciones {
     margin-top: 0;
   }
   .controls {
@@ -341,8 +340,8 @@ footer .parrafos{
     width: 25%;
   }
   .controls img {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
   }
   .buttons {
     display: flex;
@@ -361,15 +360,6 @@ footer .parrafos{
 
   #texts p {
     margin: 20px 20px;
-  }
-  .restart {
-    display: flex;
-    flex-wrap: wrap;
-    position: relative;
-    left: 110px;
-
-    border: 4px outset #fff;
-    background-color: #000;
   }
   .restart img {
     width: 25px;
