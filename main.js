@@ -25,7 +25,7 @@ modalCapita.addEventListener("click", closeModal);
 // NO se ejecute su metodo "onClick" que cierra el modal
 modal.addEventListener("click", (e) => e.stopPropagation());
 
-
+//----------counter function
 
 let intervalId;
 let contador = 0 ;

@@ -272,6 +272,7 @@ Piece.prototype.lock = function () {
                     restart();
                 }
                })()
+               //losing the game stops the counter clearInterval
                clearInterval(intervalId)
             }
             board[this.y + r][this.x + c] = this.color;
