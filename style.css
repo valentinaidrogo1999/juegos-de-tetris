@@ -126,13 +126,12 @@ ul {
   border-radius: 35px;
 }
 .controls img {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
 }
 .up-button,
 .sides-button,
 .down-button {
-  width: 100%;
   display: flex;
   justify-content: center;
 }
@@ -252,14 +251,13 @@ ul {
 /*----------------footer-----------------*/
 
 footer {
-  padding: 10px 20px;
   background-color: rgb(0, 0, 0);
   color: rgb(250, 249, 249);
   margin-top: 20px;
   text-align: center;
   display: flex;
   flex-direction: row;
-  border: 5px solid rgb(65, 64, 64);
+  border-top: 5px solid rgb(65, 64, 64);
   box-shadow: 5px 5px 150px rgb(45, 224, 248);
 }
 .javascript img {
@@ -272,6 +270,8 @@ footer {
 .logos{
   display: flex;
   flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
 }
 .logos,
 .centro {
@@ -302,9 +302,11 @@ footer {
 }
 footer h2 {
   font-size: 15px;
+  margin: 0;
 }
 footer li {
   font-size: 10px;
+  margin-top:10px;
 }
 footer .parrafos{
   display: flex;
@@ -334,27 +336,25 @@ footer .parrafos{
     width: 100%;
     display: flex;
     flex-direction: row;
-    margin-top: 3%;
+    margin-top:6%;
   }
-  .controls .texts {
+ .texts {
     width: 25%;
   }
   .controls img {
-    width: 60px;
-    height:60px;
+    width: 40px;
+    height:40px;
   }
   .buttons {
     display: flex;
     flex-direction: row;
+    width: 65%;
+    justify-content: center;
+    align-items: center;
   }
 
-  .up-button,
-  .down-button {
-    width: 20%;
-  }
   .left,
   .right {
-    width: 40%;
     margin-right: 3%;
   }
 
@@ -380,26 +380,25 @@ footer .parrafos{
 
   .logos,
   .centro {
-    font-size: 15px;
+    font-size: 20px;
   }
   footer h2 {
     font-size: 10px;
   }
   footer li {
-    font-size: 10px;
-    margin: 10px 20px;
+    font-size: 8px;
+    margin: 10px 5px;
   }
   footer {
     justify-content: center;
+    padding: 0px 25px;
   }
   .javascript img {
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
   }
   .centro {
     margin: 20px 30px;
   }
-  footer .parrafos{
-    font-size: 5px;
-  }
+  
 }
